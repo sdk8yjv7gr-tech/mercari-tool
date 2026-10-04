@@ -515,7 +515,16 @@
     
     function makeListing() {
 
-  const member = document.getElementById("member").value;
+  const selectedMembers = Array.from(
+  document.querySelectorAll('input[name="member"]:checked')
+).map(input => input.value);
+
+if (selectedMembers.length === 0) {
+  alert("メンバーを1人以上選択してください");
+  return;
+}
+
+const member = selectedMembers.join(" ");
   const work = document.getElementById("work").value;
   const otherWork = document.getElementById("otherWork").value;
   const benefit = document.getElementById("benefit").value;
@@ -583,7 +592,9 @@
   }
 
   // 検索キーワード
-  const memberKeywords = memberAliases[member].join(" ");
+  const memberKeywords = selectedMembers
+  .flatMap(member => memberAliases[member])
+  .join(" ");
 
 let workKeywords = finalWork;
 
