@@ -377,6 +377,71 @@
     "양정인"
   ]
 };
+
+    const workAliases = {
+  "I am YOU": [
+    "I am YOU",
+    "I AM YOU",
+    "アイアムユー"
+  ],
+
+  "Clé 1 : MIROH": [
+    "Clé 1 : MIROH",
+    "MIROH",
+    "ミロ"
+  ],
+
+  "Clé : LEVANTER": [
+    "Clé : LEVANTER",
+    "LEVANTER",
+    "レバンター"
+  ],
+
+  "GO生": [
+    "GO生",
+    "GO LIVE",
+    "ゴーライブ"
+  ],
+
+  "IN生": [
+    "IN生",
+    "IN LIFE",
+    "インライフ"
+  ],
+
+  "NOEASY": [
+    "NOEASY",
+    "ノーイージー"
+  ],
+
+  "ODDINARY": [
+    "ODDINARY",
+    "Oddinary",
+    "オディ",
+    "オディナリー"
+  ],
+
+  "MAXIDENT": [
+    "MAXIDENT",
+    "マキシデント"
+  ],
+
+  "THE SOUND": [
+    "THE SOUND",
+    "ザ・サウンド"
+  ],
+
+  "★★★★★ (5-STAR)": [
+    "5-STAR",
+    "5 STAR",
+    "ファイブスター"
+  ],
+
+  "Social Path": [
+    "Social Path",
+    "ソーシャルパス"
+  ]
+};
     function makeListing() {
 
   const member = document.getElementById("member").value;
@@ -449,10 +514,16 @@
   // 検索キーワード
   const memberKeywords = memberAliases[member].join(" ");
 
+let workKeywords = finalWork;
+
+if (workAliases[finalWork]) {
+  workKeywords = workAliases[finalWork].join(" ");
+}
+
 const keywords =
   "Stray Kids スキズ SKZ 스트레이 키즈 " +
   memberKeywords + " " +
-  finalWork + " " +
+  workKeywords + " " +
   benefit + " " +
   cardType;
 
