@@ -447,12 +447,14 @@
   }
 
   // 検索キーワード
-  const keywords =
-    "Stray Kids スキズ SKZ " +
-    member + " " +
-    finalWork + " " +
-    benefit + " " +
-    cardType;
+  const memberKeywords = memberAliases[member].join(" ");
+
+const keywords =
+  "Stray Kids スキズ SKZ 스트레이 키즈 " +
+  memberKeywords + " " +
+  finalWork + " " +
+  benefit + " " +
+  cardType;
 
   // 結果を表示
   document.getElementById("titleResult").value = title;
