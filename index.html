@@ -15,6 +15,30 @@
       text-align: center;
     }
 
+    h2 {
+      margin-top: 30px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin-top: 6px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+    }
+
     .category {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -31,35 +55,253 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .category button:active {
-      transform: scale(0.97);
+    .back-button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ddd;
+      font-size: 14px;
+    }
+
+    .checkbox {
+      margin-top: 12px;
+      font-weight: normal;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-right: 8px;
+    }
+
+    .main-button {
+      width: 100%;
+      margin-top: 30px;
+      padding: 16px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background-color: #333;
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>メルカリ簡単出品 🐺</h1>
+  <!-- カテゴリー選択画面 -->
 
-  <p style="text-align:center;">
-    出品するグッズを選んでね
-  </p>
+  <div id="categoryScreen">
 
-  <div class="category">
+    <h1>メルカリ簡単出品 🐺</h1>
 
-    <button>🃏<br>トレカ</button>
+    <p style="text-align:center;">
+      出品するグッズを選んでね
+    </p>
 
-    <button>💿<br>アルバム</button>
+    <div class="category">
 
-    <button>🧍<br>アクスタ</button>
+      <button onclick="showCardForm()">🃏<br>トレカ</button>
 
-    <button>📸<br>ポラ・フォト</button>
+      <button>💿<br>アルバム</button>
 
-    <button>🧸<br>SKZOO</button>
+      <button>🧍<br>アクスタ</button>
 
-    <button>🎁<br>その他</button>
+      <button>📸<br>ポラ・フォト</button>
+
+      <button>🧸<br>SKZOO</button>
+
+      <button>🎁<br>その他</button>
+
+    </div>
 
   </div>
+
+
+  <!-- トレカ入力画面 -->
+
+  <div id="cardScreen" style="display:none;">
+
+    <h1>🃏 トレカ出品</h1>
+
+    <h2>基本情報</h2>
+
+    <label>メンバー</label>
+    <select id="member">
+      <option>バンチャン</option>
+      <option>リノ</option>
+      <option>チャンビン</option>
+      <option>ヒョンジン</option>
+      <option>ハン</option>
+      <option>フィリックス</option>
+      <option>スンミン</option>
+      <option>I.N</option>
+      <option>ALL / ユニット</option>
+    </select>
+
+    <label>作品・アルバム</label>
+    <input
+      type="text"
+      id="work"
+      placeholder="例：ODDINARY"
+    >
+
+    <label>特典・店舗</label>
+    <input
+      type="text"
+      id="benefit"
+      placeholder="例：Soundwave"
+    >
+
+    <label>カードの種類</label>
+    <select id="cardType">
+      <option>通常トレカ</option>
+      <option>店舗特典</option>
+      <option>ラキドロ</option>
+      <option>ポラロイド</option>
+      <option>その他</option>
+    </select>
+
+    <label>加工</label>
+    <select id="finish">
+      <option>なし</option>
+      <option>ホログラム</option>
+      <option>マット</option>
+      <option>その他</option>
+    </select>
+
+
+    <h2>状態</h2>
+
+    <label>商品の状態</label>
+    <select id="condition">
+      <option>新品・未使用</option>
+      <option>未使用に近い</option>
+      <option>目立った傷や汚れなし</option>
+      <option>やや傷や汚れあり</option>
+      <option>傷や汚れあり</option>
+    </select>
+
+    <label>傷・スレ</label>
+    <input
+      type="text"
+      id="damage"
+      placeholder="例：裏面にスレ傷あり"
+    >
+
+    <label>保管方法</label>
+    <select id="storage">
+      <option>スリーブに入れて保管</option>
+      <option>硬質ケースに入れて保管</option>
+      <option>ファイルで保管</option>
+      <option>その他</option>
+    </select>
+
+
+    <h2>発送</h2>
+
+    <label>補強</label>
+    <select id="reinforcement">
+      <option>片面厚紙補強</option>
+      <option>両面厚紙補強</option>
+      <option>硬質ケース</option>
+      <option>なし</option>
+    </select>
+
+    <label>防水</label>
+    <select id="waterproof">
+      <option>防水対策あり</option>
+      <option>防水対策なし</option>
+    </select>
+
+    <label>発送方法</label>
+    <select id="shipping">
+      <option>普通郵便</option>
+      <option>ミニレター</option>
+      <option>ゆうゆうメルカリ便</option>
+      <option>らくらくメルカリ便</option>
+      <option>その他</option>
+    </select>
+
+
+    <h2>定型文</h2>
+
+    <label class="checkbox">
+      <input type="checkbox" id="pen">
+      ペン卒のため出品
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="overseas">
+      海外製品のため細かなスレ等ご了承ください
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="storageNote">
+      素人保管です
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="perfect">
+      完璧を求める方はご遠慮ください
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="instant">
+      即購入可能
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="bundle">
+      まとめ割対応
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="comment">
+      購入前にコメントお願いします
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" id="return">
+      返品対応不可
+    </label>
+
+
+    <h2>販売価格</h2>
+
+    <input
+      type="number"
+      id="price"
+      placeholder="例：1500"
+    >
+
+    <button class="main-button">
+      出品文を作る
+    </button>
+
+    <button
+      class="back-button"
+      onclick="showCategory()"
+    >
+      ← カテゴリー選択に戻る
+    </button>
+
+  </div>
+
+
+  <script>
+
+    function showCardForm() {
+      document.getElementById("categoryScreen").style.display = "none";
+      document.getElementById("cardScreen").style.display = "block";
+    }
+
+    function showCategory() {
+      document.getElementById("cardScreen").style.display = "none";
+      document.getElementById("categoryScreen").style.display = "block";
+    }
+
+  </script>
 
 </body>
 </html>
