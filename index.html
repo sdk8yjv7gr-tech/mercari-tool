@@ -345,11 +345,18 @@
       document.getElementById("categoryScreen").style.display = "block";
     }
 
-    function showOtherWork() {
+function showOtherWork() {
   const work = document.getElementById("work").value;
   const otherWork = document.getElementById("otherWork");
 
-      function showOtherBenefit() {
+  if (work === "その他") {
+    otherWork.style.display = "block";
+  } else {
+    otherWork.style.display = "none";
+  }
+}
+
+function showOtherBenefit() {
   const benefit = document.getElementById("benefit").value;
   const otherBenefit = document.getElementById("otherBenefit");
 
@@ -357,13 +364,6 @@
     otherBenefit.style.display = "block";
   } else {
     otherBenefit.style.display = "none";
-  }
-}
-
-  if (work === "その他") {
-    otherWork.style.display = "block";
-  } else {
-    otherWork.style.display = "none";
   }
 }
 
