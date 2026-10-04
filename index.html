@@ -550,7 +550,13 @@ if (selectedMembers.length === 0) {
 const member = selectedMembers.join(" ");
   const work = document.getElementById("work").value;
   const otherWork = document.getElementById("otherWork").value;
-  const benefit = document.getElementById("benefit").value;
+  const benefitSelect = document.getElementById("benefit").value;
+const otherBenefit = document.getElementById("otherBenefit").value;
+
+const benefit =
+  benefitSelect === "その他"
+    ? otherBenefit
+    : benefitSelect;
   const cardType = document.getElementById("cardType").value;
   const finish = document.getElementById("finish").value;
   const condition = document.getElementById("condition").value;
