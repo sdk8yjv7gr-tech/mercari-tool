@@ -246,11 +246,22 @@
     </select>
 
     <label>傷・スレ</label>
-    <input
-      type="text"
-      id="damage"
-      placeholder="例：裏面にスレ傷あり"
-    >
+
+<select id="damage" onchange="showOtherDamage()">
+  <option value="">なし</option>
+  <option value="初期傷あり">初期傷あり</option>
+  <option value="裏面スレあり">裏面スレあり</option>
+  <option value="表面スレあり">表面スレあり</option>
+  <option value="傷・スレあり">傷・スレあり</option>
+  <option value="その他">その他</option>
+</select>
+
+<input
+  type="text"
+  id="otherDamage"
+  placeholder="傷やスレの内容を入力"
+  style="display:none;"
+>
 
     <label>保管方法</label>
     <select id="storage">
@@ -364,6 +375,17 @@ function showOtherBenefit() {
     otherBenefit.style.display = "block";
   } else {
     otherBenefit.style.display = "none";
+  }
+}
+
+    function showOtherDamage() {
+  const damage = document.getElementById("damage").value;
+  const otherDamage = document.getElementById("otherDamage");
+
+  if (damage === "その他") {
+    otherDamage.style.display = "block";
+  } else {
+    otherDamage.style.display = "none";
   }
 }
 
