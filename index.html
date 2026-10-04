@@ -261,9 +261,22 @@
       placeholder="例：1500"
     >
 
-    <button class="main-button">
-      出品文を作る
-    </button>
+    <button class="main-button" onclick="makeListing()">
+  出品文を作る
+</button>
+
+<div id="result" style="display:none;">
+
+  <h2>🏷️ 商品タイトル</h2>
+  <textarea id="titleResult" rows="2"></textarea>
+
+  <h2>📝 商品説明</h2>
+  <textarea id="descriptionResult" rows="12"></textarea>
+
+  <h2>🔎 検索キーワード</h2>
+  <textarea id="keywordsResult" rows="5"></textarea>
+
+</div>
 
     <button
       class="back-button"
@@ -296,6 +309,91 @@
   } else {
     otherWork.style.display = "none";
   }
+}
+
+    function makeListing() {
+
+  const member = document.getElementById("member").value;
+  const work = document.getElementById("work").value;
+  const otherWork = document.getElementById("otherWork").value;
+  const benefit = document.getElementById("benefit").value;
+  const cardType = document.getElementById("cardType").value;
+  const finish = document.getElementById("finish").value;
+  const condition = document.getElementById("condition").value;
+  const damage = document.getElementById("damage").value;
+  const storage = document.getElementById("storage").value;
+  const reinforcement = document.getElementById("reinforcement").value;
+  const waterproof = document.getElementById("waterproof").value;
+  const shipping = document.getElementById("shipping").value;
+  const price = document.getElementById("price").value;
+  const comment = document.getElementById("comment").checked;
+
+  // 「その他」の場合は自由入力した作品名を使う
+  const finalWork = work === "その他" ? otherWork : work;
+
+  // タイトル
+  const title =
+    "Stray Kids " +
+    member + " " +
+    finalWork + " " +
+    benefit + " " +
+    cardType;
+
+  // 商品説明
+  let description = "";
+
+  description += "Stray Kids " + member + "\n";
+  description += finalWork + "\n";
+
+  if (benefit !== "") {
+    description += benefit + "\n";
+  }
+
+  description += cardType + "\n";
+
+  if (finish !== "なし") {
+    description += finish + "加工\n";
+  }
+
+  description += "\n";
+
+  description += "商品の状態： " + condition + "\n";
+
+  if (damage !== "") {
+    description += damage + "\n";
+  }
+
+  description += storage + "\n";
+  description += reinforcement + "、" + waterproof + "の上";
+  description += shipping + "で発送予定です。\n";
+
+  description += "\n";
+
+  description += "ペン卒のため出品しています\n";
+  description += "海外製品のため細かなスレ等ご了承ください\n";
+  description += "素人保管ですので完璧を求める方はご遠慮ください\n";
+  description += "即購入可能\n";
+  description += "まとめ割対応します\n";
+  description += "返品対応不可\n";
+
+  if (comment) {
+    description += "購入前にコメントお願いします\n";
+  }
+
+  // 検索キーワード
+  const keywords =
+    "Stray Kids スキズ SKZ " +
+    member + " " +
+    finalWork + " " +
+    benefit + " " +
+    cardType;
+
+  // 結果を表示
+  document.getElementById("titleResult").value = title;
+  document.getElementById("descriptionResult").value = description;
+  document.getElementById("keywordsResult").value = keywords;
+
+  document.getElementById("result").style.display = "block";
 }
   </script>
 
