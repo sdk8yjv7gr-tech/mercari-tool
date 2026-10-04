@@ -3,83 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <title>メルカリ簡単出品</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .category {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .category button {
+      padding: 25px 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 15px;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .category button:active {
+      transform: scale(0.97);
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>メルカリ簡単出品 🐱</h1>
+  <h1>メルカリ簡単出品 🐺</h1>
 
-  <p>作品名</p>
-  <input type="text" id="work">
+  <p style="text-align:center;">
+    出品するグッズを選んでね
+  </p>
 
-  <p>グループ</p>
-<select id="group">
-  <option>Stray Kids</option>
-  <option>TWICE</option>
-  <option>SEVENTEEN</option>
-  <option>その他</option>
-</select>
+  <div class="category">
 
-<p>メンバー</p>
-<select id="member">
-  <option>バンチャン</option>
-  <option>リノ</option>
-  <option>チャンビン</option>
-  <option>ヒョンジン</option>
-  <option>ハン</option>
-  <option>フィリックス</option>
-  <option>スンミン</option>
-  <option>I.N</option>
-</select>
+    <button>🃏<br>トレカ</button>
 
-  <p>グッズの種類</p>
-  <input type="text" id="goods">
+    <button>💿<br>アルバム</button>
 
-  <p>商品名・内容</p>
-  <input type="text" id="name">
+    <button>🧍<br>アクスタ</button>
 
-  <p>商品の状態</p>
-  <select id="condition">
-    <option>新品・未使用</option>
-    <option>未使用に近い</option>
-    <option>目立った傷や汚れなし</option>
-    <option>やや傷や汚れあり</option>
-    <option>傷や汚れあり</option>
-  </select>
+    <button>📸<br>ポラ・フォト</button>
 
-  <p>傷や汚れ</p>
-  <input type="text" id="damage">
+    <button>🧸<br>SKZOO</button>
 
-  <p>付属品</p>
-  <input type="text" id="accessories">
+    <button>🎁<br>その他</button>
 
-  <p>購入時期</p>
-  <input type="text" id="date">
-
-  <p>発送方法</p>
-  <input type="text" id="shipping">
-
-  <p>販売価格</p>
-  <input type="number" id="price">
-
-  <br><br>
-
-  <button>出品文を作る</button>
-
-  <script>
-
-const memberKeywords = {
-  "バンチャン": "バンチャン Bang Chan BANGCHAN",
-  "リノ": "リノ Lee Know LEEKNOW",
-  "チャンビン": "チャンビン Changbin CHANGBIN",
-  "ヒョンジン": "ヒョンジン Hyunjin HYUNJIN",
-  "ハン": "ハン HAN HANJISUNG ハンジソン",
-  "フィリックス": "フィリックス Felix FELIX",
-  "スンミン": "スンミン Seungmin SEUNGMIN",
-  "I.N": "I.N アイエン IN"
-};
-
-</script>
+  </div>
 
 </body>
 </html>
