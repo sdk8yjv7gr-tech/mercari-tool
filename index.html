@@ -371,7 +371,6 @@
 
   "I.N": [
     "I.N",
-    "I.N",
     "アイエン",
     "아이엔",
     "양정인"
@@ -442,6 +441,45 @@
     "ソーシャルパス"
   ]
 };
+
+    const benefitAliases = {
+  "soundwave": [
+    "Soundwave",
+    "Sound wave",
+    "サウンドウェーブ",
+    "サウェ"
+  ],
+
+  "タワレコ": [
+    "タワレコ",
+    "タワーレコード",
+    "Tower Records"
+  ],
+
+  "hmv": [
+    "HMV",
+    "HMV&BOOKS"
+  ],
+
+  "ソニミュ": [
+    "ソニーミュージック",
+    "Sony Music",
+    "Sony Music Shop",
+    "ソニミュ"
+  ],
+
+  "jyp": [
+    "JYP SHOP",
+    "JYP SHOP JAPAN"
+  ],
+
+  "ラキドロ": [
+    "ラキドロ",
+    "Lucky Draw",
+    "ラッキードロー"
+  ]
+};
+    
     function makeListing() {
 
   const member = document.getElementById("member").value;
@@ -516,15 +554,23 @@
 
 let workKeywords = finalWork;
 
+      let benefitKeywords = benefit;
+
+const benefitKey = benefit.trim().toLowerCase();
+
+if (benefitAliases[benefitKey]) {
+  benefitKeywords = benefitAliases[benefitKey].join(" ");
+}
+
 if (workAliases[finalWork]) {
   workKeywords = workAliases[finalWork].join(" ");
 }
 
 const keywords =
-  "Stray Kids スキズ SKZ 스트레이 키즈 " +
+  "Stray Kids スキズ SKZ ストレイキッズ " +
   memberKeywords + " " +
   workKeywords + " " +
-  benefit + " " +
+  benefitKeywords + " " +
   cardType;
 
   // 結果を表示
