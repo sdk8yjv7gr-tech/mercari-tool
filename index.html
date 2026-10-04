@@ -328,6 +328,9 @@
 
   <h2>📝 商品説明</h2>
   <textarea id="descriptionResult" rows="12"></textarea>
+  
+<button onclick="copyText('descriptionResult')">📋 商品説明をコピー</button>
+
 
   <h2>🔎 検索キーワード</h2>
   <textarea id="keywordsResult" rows="5"></textarea>
@@ -387,6 +390,14 @@ function showOtherBenefit() {
   } else {
     otherDamage.style.display = "none";
   }
+}
+
+    function copyText(id) {
+  const text = document.getElementById(id).value;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("コピーしました！");
+  });
 }
 
     const memberAliases = {
