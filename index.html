@@ -198,15 +198,27 @@
 >
 
     <label>特典・店舗</label>
-    <input
-      type="text"
-      id="benefit"
-      placeholder="例：Soundwave"
-    >
+
+<select id="benefit" onchange="showOtherBenefit()">
+  <option value="">選択してください</option>
+  <option value="Soundwave">Soundwave</option>
+  <option value="タワレコ">タワレコ</option>
+  <option value="HMV">HMV</option>
+  <option value="ソニミュ">ソニーミュージック</option>
+  <option value="JYP SHOP">JYP SHOP</option>
+  <option value="その他">その他</option>
+</select>
+
+<input
+  type="text"
+  id="otherBenefit"
+  placeholder="特典・店舗名を入力"
+  style="display:none;"
+>
 
     <label>カードの種類</label>
     <select id="cardType">
-      <option>通常トレカ</option>
+      <option>封入トレカ</option>
       <option>店舗特典</option>
       <option>ラキドロ</option>
       <option>ポラロイド</option>
@@ -336,6 +348,17 @@
     function showOtherWork() {
   const work = document.getElementById("work").value;
   const otherWork = document.getElementById("otherWork");
+
+      function showOtherBenefit() {
+  const benefit = document.getElementById("benefit").value;
+  const otherBenefit = document.getElementById("otherBenefit");
+
+  if (benefit === "その他") {
+    otherBenefit.style.display = "block";
+  } else {
+    otherBenefit.style.display = "none";
+  }
+}
 
   if (work === "その他") {
     otherWork.style.display = "block";
