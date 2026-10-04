@@ -140,11 +140,29 @@
     </select>
 
     <label>作品・アルバム</label>
-    <input
-      type="text"
-      id="work"
-      placeholder="例：ODDINARY"
-    >
+
+<select id="work" onchange="showOtherWork()">
+  <option value="">選択してください</option>
+  <option value="I am YOU">I am YOU</option>
+  <option value="Clé 1 : MIROH">Clé 1 : MIROH</option>
+  <option value="Clé : LEVANTER">Clé : LEVANTER</option>
+  <option value="GO生">GO生</option>
+  <option value="IN生">IN生</option>
+  <option value="NOEASY">NOEASY</option>
+  <option value="ODDINARY">ODDINARY</option>
+  <option value="MAXIDENT">MAXIDENT</option>
+  <option value="THE SOUND">THE SOUND</option>
+  <option value="★★★★★ (5-STAR)">★★★★★ (5-STAR)</option>
+  <option value="Social Path">Social Path</option>
+  <option value="その他">その他</option>
+</select>
+
+<input
+  type="text"
+  id="otherWork"
+  placeholder="作品・アルバム名を入力"
+  style="display:none;"
+>
 
     <label>特典・店舗</label>
     <input
@@ -301,6 +319,16 @@
       document.getElementById("categoryScreen").style.display = "block";
     }
 
+    function showOtherWork() {
+  const work = document.getElementById("work").value;
+  const otherWork = document.getElementById("otherWork");
+
+  if (work === "その他") {
+    otherWork.style.display = "block";
+  } else {
+    otherWork.style.display = "none";
+  }
+}
   </script>
 
 </body>
